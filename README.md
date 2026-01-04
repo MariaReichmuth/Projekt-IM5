@@ -9,31 +9,28 @@
 **Maria Reichmuth, Ricarda Schirato (MMP23CV)**
 
 **Artefakt:** projektim05.mariareichmuth  
-**Präsentationsvideo:** [Link einfügen]
+**Praesentationsvideo:** [Link einfügen]
 
 ---
 
 ## Projektidee in einem Satz
-Ein responsives Scrollytelling, bei dem der Scroll nicht nur Navigation ist, sondern das Erzählen selbst übernimmt: Zooms, Überblendungen, Perspektivwechsel und ein bewusster Richtungswechsel (vertikal → horizontal) sind direkt an die Scrollbewegung gekoppelt.
+Ein responsives Scrollytelling, bei dem der Scroll nicht nur Navigation ist, sondern das Erzaehlen selbst uebernimmt: Zooms, Ueberblendungen, Perspektivwechsel und ein bewusster Richtungswechsel (vertikal → horizontal) sind direkt an die Scrollbewegung gekoppelt.
 
 ---
 
 ## Projektstruktur
 
-Projekt-IM5/
-├─ index.html
-├─ style.css
-├─ script.js
-├─ README.md
-└─ sketch/
-├─ *.svg
-├─ *.png
-└─ *.gif
+Projekt-IM5/  
+├─ index.html  
+├─ style.css  
+├─ script.js  
+├─ README.md  
+└─ sketch/  
+&nbsp;&nbsp;&nbsp;├─ SVG-Assets  
+&nbsp;&nbsp;&nbsp;├─ PNG-Assets  
+&nbsp;&nbsp;&nbsp;└─ GIF-Assets  
 
-yaml
-Code kopieren
-
-Alle visuellen Assets (Illustrationen, PNGs, GIFs) sind im Ordner `sketch/` gebündelt und werden über relative Pfade eingebunden.
+Alle visuellen Assets (Illustrationen, PNGs, GIFs) sind im Ordner `sketch/` gebuendelt und werden ueber relative Pfade eingebunden.
 
 ---
 
@@ -41,9 +38,9 @@ Alle visuellen Assets (Illustrationen, PNGs, GIFs) sind im Ordner `sketch/` geb�
 Der Schwerpunkt dieses Projekts lag auf Interaktionsdesign und technischer Umsetzung.
 
 - Scroll als dramaturgisches Werkzeug (scrubbed Animation statt Autoplay)
-- Ruhige Übergänge ohne harte Schnitte
+- Ruhige Uebergaenge ohne harte Schnitte
 - Richtungswechsel als bewusster Interaktionsmoment
-- Stabilität und Performance bei komplexem Layering
+- Stabilitaet und Performance bei komplexem Layering
 - Responsiveness und Reduced Motion
 
 ---
@@ -51,12 +48,12 @@ Der Schwerpunkt dieses Projekts lag auf Interaktionsdesign und technischer Umset
 ## Interaktionsablauf
 
 ### Kapitel 1: Vertikal (Hero – pinned)
-Der Einstieg ist als pinned section umgesetzt. Der sichtbare Bildausschnitt bleibt fixiert, während der Scroll eine GSAP-Timeline scrubbt.
+Der Einstieg ist als pinned Section umgesetzt. Der sichtbare Bildausschnitt bleibt fixiert, waehrend der Scroll die Erzaehlbewegung steuert.
 
 - Zoom in den Gullideckel durch Skalierung mehrerer Layer
-- Layer-Wechsel (Strasse → Detail → Kanalisation) via Crossfades
-- Ein- und Ausblenden von Texten als Erzählbeats
-- Schwarzblenden als Übergänge
+- Layer-Wechsel (Strasse → Detail → Kanalisation) via weichen Ueberblendungen
+- Ein- und Ausblenden von Texten als Erzaehlbeats
+- Schwarzblenden als Uebergaenge
 - Vertikaler Abstieg entlang einer Leiter mit konstantem Leitmotiv
 
 <p align="center">
@@ -65,12 +62,12 @@ Der Einstieg ist als pinned section umgesetzt. Der sichtbare Bildausschnitt blei
 
 ---
 
-### Kapitel 2: Horizontal (Kanal – pinned Track)
+### Kapitel 2: Horizontal (Kanal – Track)
 Nach dem Abstieg wird der Scroll horizontal interpretiert, obwohl weiterhin vertikal gescrollt wird.
 
-- Horizontaler Track mit mehreren Slides
-- Seitliche Verschiebung des Tracks (`xPercent`)
-- Gefühl des Vorwärtsgehens durch den Kanal
+- Horizontaler Track mit mehreren Szenen
+- Seitliche Bewegung erzeugt das Gefuehl des Vorwaertsgehens
+- Kontinuierlicher Raum statt klassischer Szenenwechsel
 
 <p align="center">
   <img src="sketch/graffiti.gif" width="70%">
@@ -82,23 +79,24 @@ Nach dem Abstieg wird der Scroll horizontal interpretiert, obwohl weiterhin vert
 
 ### Stack
 - HTML / CSS / JavaScript (statisch)
-- GSAP
 - GSAP ScrollTrigger
 
 Illustrationen und GIFs wurden mit Procreate und Adobe Photoshop erstellt.  
-Die Programmierung wurde mit Unterstützung von ChatGPT umgesetzt.
+Die Programmierung erfolgte mit punktueller Unterstuetzung durch ChatGPT.
 
 ---
 
-## Zentrale technische Prinzipien
+## Zentrale gestalterisch-technische Prinzipien
 
-### Scroll = Timeline
-Alle Animationen laufen in GSAP-Timelines mit `scrub: true`. Die Scrollposition steuert direkt den Animationsfortschritt.
+### Scroll als Erzaehlachse
+Die Scrollposition bestimmt Tempo, Rhythmus und Fortschritt der Erzaehlung. Nutzer:innen kontrollieren die Bewegung selbst.
+
+---
 
 ### Layering statt Szenenwechsel
-- Übereinanderliegende SVGs, Overlays und GIFs
-- Steuerung über `opacity` / `autoAlpha`
-- Keine harten Schnitte
+- Mehrere visuelle Ebenen uebereinander
+- Sichtbarkeit ueber Transparenz gesteuert
+- Keine harten Schnitte, sondern kontinuierliche Transformation
 
 <p align="center">
   <img src="sketch/kanalisation1.svg" width="70%">
@@ -106,67 +104,69 @@ Alle Animationen laufen in GSAP-Timelines mit `scrub: true`. Die Scrollposition 
 
 ---
 
-### Performance & Stabilität
-- Preload und Decode zentraler Assets
-- Anti-Flicker-Massnahmen (`translateZ(0)`, `backface-visibility`, `will-change`)
-- Fokus auf GPU-freundliche Properties (`transform`, `opacity`)
+### Performance & Stabilitaet
+- Bewusste Reduktion gleichzeitiger Bewegungen
+- Fokus auf visuelle Ruhe
+- Vermeidung von Pop-ins und Flackern
 
 ---
 
-### Responsiveness
+## Responsiveness
+Das Projekt ist fuer unterschiedliche Bildschirmgroessen ausgelegt.
 
-```js
-ScrollTrigger.matchMedia({
-  "(max-width: 767px)": () => {
-    // Mobile Setup
-  },
-  "(min-width: 768px)": () => {
-    // Desktop Setup
-  }
-});
-Unterschiedliche Transform-Origins, Positionierungen und Textabstände für Mobile und Desktop.
+- Angepasste Positionierungen und Abstaende fuer Mobile und Desktop
+- Unterschiedliche Gewichtung von Bild und Text je nach Viewport
+- Fokus auf Lesbarkeit und visuelle Klarheit
 
-Reduced Motion
-prefers-reduced-motion: reduce wird respektiert
+---
 
-Animationen werden nicht gescrubbt
+## Reduced Motion
+Bewegung wird bewusst reduziert, wenn Nutzer:innen dies bevorzugen.
 
-Finale Zustände werden direkt gesetzt
+- Systemeinstellung „prefers reduced motion“ wird respektiert
+- Animationen werden stark vereinfacht oder uebersprungen
+- Finale Bildzustaende werden direkt angezeigt
+- Optionaler manueller Override ueber URL-Parameter
 
-Optionaler Override über ?motion
+---
 
-Animierte Elemente (GIFs)
-schritte.gif – Alltagsfluss an der Oberfläche
+## Animierte Elemente (GIFs)
 
-zigarette.gif / Zigi2.gif – Trigger und Leitmotiv
+- **schritte.gif** – Alltagsfluss an der Oberflaeche
+- **zigarette.gif / Zigi2.gif** – wiederkehrender Trigger
+- **graffiti.gif** – visuelle Spur innerer Zustaende
+- **ratte.gif, ratte2.gif, ratte3.gif** – wiederkehrendes Motiv in drei Entwicklungsstufen
 
-graffiti.gif – visuelle Spuren innerer Zustände
+<p align="center">
+  <img src="sketch/ratte.gif" width="40%">
+</p>
 
-ratte.gif, ratte2.gif, ratte3.gif – wiederkehrendes Motiv in drei Zuständen
+### Technischer Kniff – Ratte
+- Fixiertes Overlay ueber der Szene
+- Reaktion auf Scrollrichtung durch Spiegelung und Positionswechsel
+- Bewusster Einsatz als leitendes Symbol
 
-<p align="center"> <img src="sketch/ratte.gif" width="40%"> </p>
-Technischer Kniff – Ratte 2
-Fixed Overlay über der Szene
+---
 
-Reaktion auf Scrollrichtung (Spiegelung / Position)
+## Learnings & Stolpersteine
 
-Periodischer Neustart des GIFs durch DOM-Ersatz und Cache-Busting
+### Timing
+Das exakte Abstimmen von Ein- und Ausblendungen sowie das Verhalten beim Rueckwaertsscrollen erwies sich als besonders anspruchsvoll.
 
-Learnings & Stolpersteine
-Timing
-Das exakte Abstimmen von Ein- und Ausblendungen sowie das Verhalten beim Reverse-Scroll war der zeitintensivste Teil der Umsetzung.
+### Skizze vs. Umsetzung
+Mehrere Ideen funktionierten in der Skizze, aber nicht im gescrubbten Scroll-Kontext. Frueheres Prototyping im Browser haette Iterationen reduziert.
 
-Skizze vs. Scroll
-Mehrere Ideen funktionierten auf Papier, aber nicht im gescrubbten Scroll-Kontext. Früheres Testen direkt im Browser hätte Iterationen reduziert.
+### Performance
+Schon kleine visuelle Instabilitaeten wirken im Scrollytelling stark stoerend. Reduktion und saubere Vorbereitung der Assets waren entscheidend.
 
-Performance
-Bereits kleine visuelle Instabilitäten (Pop-in, Flackern) wirken im Scrollytelling stark störend. Preloading und Anti-Flicker-Massnahmen erwiesen sich als essenziell.
+### Reduktion
+Weniger Bewegung erzeugt mehr Wirkung. Animation wurde gezielt und sparsam eingesetzt.
 
-Reduktion
-Zu viele gleichzeitige Animationen schwächen die Wirkung. Bewegung wurde bewusst reduziert und gezielt eingesetzt.
+---
 
-Fazit
+## Fazit
 Scrollen kann mehr sein als Navigation.
-Durch die direkte Kopplung von Scrollposition und Animation entsteht eine ruhige, kontrollierte Interaktion, bei der Nutzer:innen Tempo und Rhythmus selbst bestimmen.
 
-Technik dient hier nicht als Effekt, sondern als tragendes erzählerisches Mittel.
+Durch die direkte Kopplung von Scrollbewegung und Erzaehlung entsteht eine ruhige, kontrollierte Interaktion, bei der Nutzer:innen Tempo und Rhythmus selbst bestimmen.
+
+Technik ist hier kein Selbstzweck, sondern traegt die Geschichte.
