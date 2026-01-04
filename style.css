@@ -1,0 +1,722 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Jolly+Lodger&display=swap");
+
+:root{
+  --red: #b10707;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Oswald", sans-serif;
+  font-weight: 200;
+  font-size: 1.8rem;
+  line-height: 1.45;
+  background: #000;
+  color: #f7f7f7;
+}
+
+/* Anti-Flicker */
+.hero__image,
+.hero__detail-overlay,
+.hero__cigarette-overlay,
+.hero__zigi2-overlay,
+.hero__tunnel-ghost,
+.season-layer,
+.hero__blackout,
+.seq__img,
+.seq__graffiti,
+.seq__blackout,
+.seq__track,
+.seq__hscroll,
+.seq__bg,
+.seq__ratte-overlay,
+.ratte-global,
+.ratte-global__gif,
+.footer {
+  backface-visibility: hidden;
+  transform: translateZ(0);
+  will-change: transform, opacity;
+}
+
+/* =========================================================
+   GLOBAL: TEXT BUBBLE
+   ========================================================= */
+
+.text-bubble {
+  --cloud-inset: -45%;
+  max-width: 34rem;
+  margin: 0;
+  text-align: center;
+  color: #293133;
+  text-shadow: 0 0 10px rgba(255,255,255,0.85);
+  position: relative;
+  display: inline-block;
+  padding: 1.2rem 2rem;
+}
+
+.text-bubble::before {
+  content: "";
+  position: absolute;
+  inset: var(--cloud-inset);
+  background-image: url("sketch/textwolke.svg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  background-position: center;
+  z-index: -1;
+  opacity: 0.9;
+}
+
+/* =========================================================
+   HERO
+   ========================================================= */
+
+.hero--full {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  z-index: 50; /* fix stacking */
+}
+
+.hero__media {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  isolation: isolate;
+}
+
+/* Bilder */
+.hero__image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.hero__image--detail { opacity: 0; }
+.hero__image--canal  { opacity: 0; }
+.hero__image--ladder { opacity: 0; height: 300vh; }
+.hero__image--trash  { opacity: 0; }
+
+/* GIF Overlays */
+.hero__detail-overlay,
+.hero__cigarette-overlay,
+.hero__zigi2-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 4;
+}
+
+.hero__steps-gif,
+.hero__cigarette-gif,
+.hero__zigi2-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Blackout */
+.hero__blackout {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 0;
+  z-index: 20;
+  pointer-events: none;
+}
+
+/* Titel */
+.hero__title-wrap {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.hero__title-inner {
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.2rem;
+
+  /* Desktop-Pfeil wird relativ zu diesem Container positioniert */
+  position: relative;
+}
+
+/* Titel */
+.hero__title {
+  font-family: "Times New Roman", Times, serif;
+  font-weight: 700;
+  font-style: italic;
+  font-size: clamp(3rem, 6vw, 4.2rem);
+  letter-spacing: 0.01em;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  color: #293133;
+  text-shadow: 0 0 25px rgba(255, 255, 255, 0.9);
+}
+
+.hero__arrow {
+  width: 46px;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+  opacity: 1;
+  z-index: 6;
+  align-self: flex-start;
+  margin-top: 0.2rem;
+  animation: arrowFloat 1.4s ease-in-out infinite;
+  filter: drop-shadow(0 0 25px rgba(255, 255, 255, 0.9));
+}
+
+@keyframes arrowFloat {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(10px); }
+}
+
+/* Mobile: bleibt wie vorher (Viewport-basiert) */
+@media (max-width: 767px) {
+  .hero__arrow { margin-left: 30vw; }
+}
+
+/* Desktop: Pfeil relativ zum Titel, leicht links von Titelmitte */
+@media (min-width: 768px) {
+  .hero__arrow{
+    position: absolute;
+    top: 100%;
+    margin-top: 0.6rem;
+
+    /* Links von der Titelmitte:
+       50% = Mitte; kleiner = weiter links.
+       Startwert: 44% (typisch "leicht links"). */
+    left: 38%;
+
+    margin-left: 0;
+
+    /* Nur X-Transform hier, damit das Hover/Float (translateY) nicht kaputt geht:
+       Wir trennen X und Y, indem wir X hier setzen und Y über keyframes läuft.
+       -> Trick: X über translateX, Y über Animation (translateY).
+       Dafür brauchen wir eine zusammengesetzte Transform-Anweisung:
+       Wir lösen das via CSS-Variable unten. */
+    transform: translateX(-50%);
+  }
+}
+
+/* Texte */
+.hero__intro-text {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 12vh 1.5rem 1.5rem;
+  pointer-events: none;
+  opacity: 0;
+  z-index: 6;
+}
+
+.hero__ladder-text {
+  align-items: flex-end;
+  padding: 1.5rem 1.5rem 14vh;
+}
+
+.hero__trash-text {
+  align-items: flex-start;
+  padding: 22vh 1.5rem 1.5rem;
+}
+
+/* Zigi */
+.hero__zigi {
+  position: absolute;
+  width: 120px;
+  height: auto;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%) translateZ(0);
+  z-index: 6;
+  pointer-events: none;
+  opacity: 0;
+}
+
+/* =========================================================
+   Ghost Text im schwarzen Leerlauf
+   ========================================================= */
+
+.hero__tunnel-ghost{
+  position: fixed;
+  inset: 0;
+  z-index: 10001;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  padding: 0 1.5rem calc(18vh + env(safe-area-inset-bottom));
+  pointer-events: none;
+  opacity: 0;
+  overflow: visible;
+}
+
+.hero__tunnel-ghost .text-bubble{
+  max-width: 38rem;
+}
+
+/* Desktop: Wolke deutlich grösser (Text soll sauber reinpassen) */
+@media (min-width: 768px) {
+  .hero__tunnel-ghost .text-bubble{
+    padding: 1.35rem 2.2rem;
+  }
+  .hero__tunnel-ghost .text-bubble::before{
+    inset: -68%;
+    opacity: 0.92;
+  }
+}
+
+/* Mobile: mehr Luft nach unten */
+@media (max-width: 767px) {
+  .hero__tunnel-ghost{
+    padding: 0 1.25rem calc(28vh + env(safe-area-inset-bottom));
+  }
+  .hero__tunnel-ghost .text-bubble{
+    --cloud-inset: -38%;
+  }
+}
+
+/* =========================================================
+   Jolly Lodger + Rot (Leiter + Müll + Kanal + Ghost)
+   ========================================================= */
+
+.hero__ladder-text .text-bubble,
+.hero__trash-text .text-bubble,
+.seq__text--canal-1 .text-bubble,
+.seq__text--canal-2 .text-bubble,
+.seq__text--canal-3 .text-bubble,
+.hero__tunnel-ghost .text-bubble {
+  font-family: "Jolly Lodger", cursive;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--red);
+  text-shadow:
+    0 0 14px rgba(177, 7, 7, 0.35),
+    0 0 10px rgba(255,255,255,0.25);
+  letter-spacing: 0.02em;
+}
+
+/* Wolken-Feintuning Leiter */
+.hero__ladder-text--1 .text-bubble { --cloud-inset: -62%; }
+.hero__ladder-text--3 .text-bubble { --cloud-inset: -36%; }
+
+@media (max-width: 767px){
+  .hero__ladder-text--1 .text-bubble { --cloud-inset: -50%; }
+  .hero__ladder-text--3 .text-bubble { --cloud-inset: -45%; }
+}
+
+/* =========================================================
+   SEASONS
+   ========================================================= */
+
+.season-layer {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 3;
+}
+
+.season {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 1.2s ease;
+}
+.season.is-active { opacity: 1; }
+
+.season__filter {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.35;
+  mix-blend-mode: soft-light;
+}
+
+.season__filter--winter { background: radial-gradient(circle at top, rgba(80, 140, 255, 0.40), rgba(0, 20, 60, 0.75)); }
+.season__filter--spring { background: radial-gradient(circle at top, rgba(255, 170, 210, 0.40), rgba(70, 0, 40, 0.70)); }
+.season__filter--summer { background: radial-gradient(circle at top, rgba(255, 220, 140, 0.42), rgba(90, 40, 0, 0.75)); }
+.season__filter--autumn { background: radial-gradient(circle at top, rgba(255, 150, 80, 0.42), rgba(40, 10, 0, 0.80)); }
+
+.season__effects { position: absolute; inset: 0; z-index: 2; overflow: hidden; }
+.particle { position: absolute; z-index: 3; }
+
+/* WINTER */
+.season--winter .flake {
+  width: 10px;
+  height: 10px;
+  background: #e5f5ff;
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(255,255,255,0.9);
+  top: -10%;
+  animation: snowFall 10s linear infinite;
+}
+.season--winter .flake:nth-child(1)  { left: 5%;  animation-delay: 0s; }
+.season--winter .flake:nth-child(2)  { left: 18%; animation-delay: 1s; }
+.season--winter .flake:nth-child(3)  { left: 30%; animation-delay: 2.5s; }
+.season--winter .flake:nth-child(4)  { left: 42%; animation-delay: 0.5s; }
+.season--winter .flake:nth-child(5)  { left: 55%; animation-delay: 3.1s; }
+.season--winter .flake:nth-child(6)  { left: 68%; animation-delay: 1.9s; }
+.season--winter .flake:nth-child(7)  { left: 80%; animation-delay: 2.7s; }
+.season--winter .flake:nth-child(8)  { left: 92%; animation-delay: 4s; }
+.season--winter .flake:nth-child(9)  { left: 25%; animation-delay: 3.4s; }
+.season--winter .flake:nth-child(10) { left: 47%; animation-delay: 5s; }
+.season--winter .flake:nth-child(11) { left: 73%; animation-delay: 6.2s; }
+.season--winter .flake:nth-child(12) { left: 88%; animation-delay: 7.1s; }
+
+@keyframes snowFall {
+  0%   { top: -10%; opacity: 0; }
+  10%  { opacity: 1; }
+  100% { top: 110%; opacity: 0; }
+}
+
+/* SPRING */
+.season--spring .petal {
+  width: 18px;
+  height: 10px;
+  background: #ffd3e6;
+  border-radius: 50% 50% 50% 0;
+  transform-origin: center;
+  top: -10%;
+  animation: petalFall 11s ease-in-out infinite;
+}
+.season--spring .petal:nth-child(1)  { left: 8%;  animation-delay: 0.3s; }
+.season--spring .petal:nth-child(2)  { left: 22%; animation-delay: 1.2s; }
+.season--spring .petal:nth-child(3)  { left: 36%; animation-delay: 2.7s; }
+.season--spring .petal:nth-child(4)  { left: 50%; animation-delay: 0.9s; }
+.season--spring .petal:nth-child(5)  { left: 64%; animation-delay: 3.3s; }
+.season--spring .petal:nth-child(6)  { left: 78%; animation-delay: 1.8s; }
+.season--spring .petal:nth-child(7)  { left: 90%; animation-delay: 4.1s; }
+.season--spring .petal:nth-child(8)  { left: 28%; animation-delay: 5.2s; }
+.season--spring .petal:nth-child(9)  { left: 58%; animation-delay: 6s; }
+.season--spring .petal:nth-child(10) { left: 82%; animation-delay: 7s; }
+
+@keyframes petalFall {
+  0%   { top: -10%; transform: translateX(-20px) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { top: 110%; transform: translateX(40px) rotate(160deg); opacity: 0; }
+}
+
+/* SUMMER */
+.light-ray {
+  position: absolute;
+  top: -25%;
+  bottom: -25%;
+  width: 40%;
+  background: linear-gradient(
+    to bottom,
+    rgba(255,255,255,0.00) 0%,
+    rgba(255,255,255,0.25) 30%,
+    rgba(255,220,150,0.20) 60%,
+    rgba(255,255,255,0.00) 100%
+  );
+  mix-blend-mode: screen;
+  opacity: 0.32;
+  filter: blur(5px);
+  pointer-events: none;
+  animation: rayPulse 9s ease-in-out infinite;
+}
+.light-ray--1 { left: -5%; transform: rotate(-16deg); }
+.light-ray--2 { left: 15%; transform: rotate(-9deg);  animation-duration: 11s; }
+.light-ray--3 { left: 42%; transform: rotate(-6deg);  animation-duration: 13s; }
+.light-ray--4 { left: 68%; transform: rotate(-13deg); animation-duration: 10s; }
+
+@keyframes rayPulse {
+  0%, 100% { opacity: 0.24; }
+  50%      { opacity: 0.40; }
+}
+
+/* AUTUMN */
+.season--autumn .leaf {
+  width: 18px;
+  height: 12px;
+  background: #ffb066;
+  border-radius: 60% 40% 60% 40%;
+  transform-origin: center;
+  top: -10%;
+  animation: leafFall 10s ease-in-out infinite;
+}
+.season--autumn .leaf:nth-child(1)  { left: 10%; animation-delay: 0.5s; }
+.season--autumn .leaf:nth-child(2)  { left: 24%; animation-delay: 1.4s; }
+.season--autumn .leaf:nth-child(3)  { left: 38%; animation-delay: 2.1s; }
+.season--autumn .leaf:nth-child(4)  { left: 52%; animation-delay: 0.9s; }
+.season--autumn .leaf:nth-child(5)  { left: 66%; animation-delay: 3.2s; }
+.season--autumn .leaf:nth-child(6)  { left: 80%; animation-delay: 1.7s; }
+.season--autumn .leaf:nth-child(7)  { left: 92%; animation-delay: 4.1s; }
+.season--autumn .leaf:nth-child(8)  { left: 30%; animation-delay: 4.9s; }
+.season--autumn .leaf:nth-child(9)  { left: 58%; animation-delay: 5.6s; }
+.season--autumn .leaf:nth-child(10) { left: 76%; animation-delay: 6.3s; }
+
+@keyframes leafFall {
+  0%   { top: -10%; transform: translateX(20px) rotate(0deg); opacity: 0; }
+  10%  { opacity: 1; }
+  100% { top: 110%; transform: translateX(-40px) rotate(200deg); opacity: 0; }
+}
+
+/* =========================================================
+   Kapitel 2: SEQ (Tunnel -> Kanal)
+   ========================================================= */
+
+.seq {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  background: #000;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.seq__viewport {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  isolation: isolate;
+  overflow: visible;
+}
+
+/* Tunnel */
+.seq__tunnel { position: absolute; inset: 0; z-index: 10; }
+
+.seq__img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+}
+
+/* Tunnel Ebenen: Müll ÜBER dem GIF */
+.seq__img--dark        { z-index: 1; }
+.seq__img--light       { z-index: 3; }
+.seq__graffiti         { z-index: 4; }   /* GIF */
+.seq__img--dark-muell  { z-index: 6; }   /* drüber */
+.seq__img--light-muell { z-index: 6; }   /* drüber */
+
+.seq__graffiti {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.seq__graffiti-gif {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Horizontal Kanal */
+.seq__hscroll {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  opacity: 0;
+  overflow: visible;
+}
+
+.seq__track {
+  display: flex;
+  height: 100%;
+  transform: translateZ(0);
+}
+
+.seq__slide {
+  position: relative;
+  min-width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.seq__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 1;
+}
+
+.canal--1 .seq__bg--canal { object-position: 0% 50%; }
+.canal--2 .seq__bg--canal { object-position: 50% 50%; }
+.canal--3 .seq__bg--canal { object-position: 100% 50%; }
+
+.seq__text {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  justify-content: center;
+  pointer-events: none;
+  opacity: 0;
+  padding: 1.5rem;
+}
+
+.seq__text--center { align-items: center; text-align: center; }
+
+.seq__text--tunnel {
+  align-items: flex-start;
+  padding-top: 10vh;
+  text-align: center;
+}
+
+/* Blackout */
+.seq__blackout {
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: 1;
+  z-index: 100;
+  pointer-events: none;
+}
+
+/* =========================================================
+   GLOBAL RATTE (fixed overlay)
+   ========================================================= */
+
+.ratte-global {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0;
+}
+
+.ratte-global__gif {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: auto;
+  display: block;
+  opacity: 0;
+  left: 0;
+  right: auto;
+}
+
+.ratte-global__gif.is-visible { opacity: 1; }
+
+.ratte-global__gif.is-mirrored{
+  transform: scaleX(-1);
+  transform-origin: center;
+}
+
+.ratte-global__gif.is-right{
+  left: auto;
+  right: 0;
+}
+
+/* Mobile: ratte2 + ratte3 Crop gleich */
+@media (max-width: 767px) {
+  #ratte2.is-visible,
+  #ratte3.is-visible {
+    left: -55vw !important;
+    right: auto !important;
+  }
+  #ratte2.is-visible.is-right,
+  #ratte3.is-visible.is-right {
+    left: auto !important;
+    right: -55vw !important;
+  }
+}
+
+/* =========================================================
+   Footer: Namen zusammenhalten + Jolly Lodger grösser
+   ========================================================= */
+
+.footer {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  text-align: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.footer p {
+  margin: 0;
+  font-family: "Jolly Lodger", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: clamp(3rem, 6.2vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: 0.02em;
+  color: #ffffff;
+  text-shadow:
+    0 0 34px rgba(180,180,180,0.90),
+    0 0 18px rgba(120,120,120,0.60);
+}
+
+/* Namen dürfen nicht umbrechen (wir nutzen spans im HTML) */
+.footer__name { white-space: nowrap; }
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  html, body { scroll-behavior: auto; }
+  .hero__arrow { animation: none; }
+  .season { transition: none; }
+}
+
+/* =========================================================
+   FIX (Mobile): Wolke bei 3. Kanal-Textbox grösser
+   ========================================================= */
+
+@media (max-width: 767px) {
+  .seq__text--canal-3 .text-bubble {
+    padding: 1.3rem 2.1rem;
+  }
+
+  .seq__text--canal-3 .text-bubble::before {
+    inset: -58%;
+    background-size: 100% 100%;
+    opacity: 0.92;
+  }
+}
+
+/* =========================================================
+   FIX (Desktop): 2. Kanal-Textbox Wolke grösser
+   ========================================================= */
+
+@media (min-width: 768px) {
+  .seq__text--canal-2 .text-bubble {
+    padding: 1.35rem 2.15rem;
+  }
+
+  .seq__text--canal-2 .text-bubble::before {
+    inset: -62%;
+    opacity: 0.92;
+  }
+}

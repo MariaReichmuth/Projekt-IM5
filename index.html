@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <!-- Favicon -->
+  <link rel="icon" href="sketch/Zigi.svg" type="image/svg+xml">
+  <link rel="mask-icon" href="sketch/Zigi.svg" color="#000000">
+
+  <!-- Adobe Fonts -->
+  <link rel="stylesheet" href="https://use.typekit.net/gsi0pqe.css">
+  <link rel="stylesheet" href="https://use.typekit.net/yom0irc.css">
+
+  <!-- Preload: HERO Assets -->
+  <link rel="preload" href="sketch/Hintergrund1.svg" as="image">
+  <link rel="preload" href="sketch/Gullideckel2.svg" as="image">
+  <link rel="preload" href="sketch/kanalisation1.svg" as="image">
+  <link rel="preload" href="sketch/Leiter.svg" as="image">
+  <link rel="preload" href="sketch/muellhaufen.svg" as="image">
+  <link rel="preload" href="sketch/schritte.gif" as="image">
+  <link rel="preload" href="sketch/zigarette.gif" as="image">
+  <link rel="preload" href="sketch/Zigi.svg" as="image">
+  <link rel="preload" href="sketch/textwolke.svg" as="image">
+  <link rel="preload" href="sketch/Zigi2.gif" as="image">
+
+  <!-- Preload: TUNNEL -->
+  <link rel="preload" href="sketch/tunneldunkel.svg" as="image">
+  <link rel="preload" href="sketch/tunneldunkelmuell.svg" as="image">
+  <link rel="preload" href="sketch/tunnelhell.svg" as="image">
+  <link rel="preload" href="sketch/tunnelhellmuell.svg" as="image">
+  <link rel="preload" href="sketch/graffiti.gif" as="image">
+
+  <!-- Preload: KANAL + RATTE -->
+  <link rel="preload" href="sketch/hintergrundkanal.svg" as="image">
+  <link rel="preload" href="sketch/ratte.gif" as="image">
+  <link rel="preload" href="sketch/ratte2.gif" as="image">
+  <link rel="preload" href="sketch/ratte3.gif" as="image">
+
+  <link rel="stylesheet" href="style.css" />
+  <title>Que trouvons-nous là-bas?</title>
+</head>
+
+<body>
+
+  <!-- =========================================================
+       GLOBAL RATTE OVERLAY
+       ========================================================= -->
+  <div class="ratte-global" aria-hidden="true">
+    <img id="ratte1" src="sketch/ratte.gif" alt="" class="ratte-global__gif">
+    <img id="ratte2" src="sketch/ratte2.gif" alt="" class="ratte-global__gif">
+    <img id="ratte3" src="sketch/ratte3.gif" alt="" class="ratte-global__gif">
+  </div>
+
+  <!-- =========================
+       HERO (VERTIKAL)
+       ========================= -->
+  <section class="hero hero--full" id="section-01-hero">
+    <div class="hero__media">
+
+      <!-- HERO Bilder -->
+      <img src="sketch/Hintergrund1.svg"
+           alt="Startillustration"
+           class="hero__image hero__image--base"
+           loading="eager" fetchpriority="high" decoding="sync" />
+
+      <img src="sketch/Gullideckel2.svg"
+           alt="Gullideckel Detail"
+           class="hero__image hero__image--detail"
+           loading="eager" fetchpriority="high" decoding="sync" />
+
+      <img src="sketch/kanalisation1.svg"
+           alt="Kanalisation"
+           class="hero__image hero__image--canal"
+           loading="eager" fetchpriority="high" decoding="sync" />
+
+      <img src="sketch/Leiter.svg"
+           alt="Leiter"
+           class="hero__image hero__image--ladder"
+           loading="eager" fetchpriority="high" decoding="sync" />
+
+      <img src="sketch/muellhaufen.svg"
+           alt="Müllhaufen"
+           class="hero__image hero__image--trash"
+           loading="eager" fetchpriority="high" decoding="sync" />
+
+      <!-- Schritte GIF -->
+      <div class="hero__detail-overlay">
+        <img src="sketch/schritte.gif"
+             alt="Schritte Animation"
+             class="hero__steps-gif"
+             loading="eager" fetchpriority="high" decoding="sync">
+      </div>
+
+      <!-- Zigarette GIF -->
+      <div class="hero__cigarette-overlay">
+        <img src="sketch/zigarette.gif"
+             alt="Zigarette Animation"
+             class="hero__cigarette-gif"
+             loading="eager" fetchpriority="high" decoding="sync">
+      </div>
+
+      <!-- Zigi2 GIF (erscheint MIT muellhaufen) -->
+      <div class="hero__zigi2-overlay">
+        <img src="sketch/Zigi2.gif"
+             alt="Zigi2 Animation"
+             class="hero__zigi2-gif"
+             loading="eager" fetchpriority="high" decoding="sync">
+      </div>
+
+      <img src="sketch/Zigi.svg"
+           alt="Zigarette"
+           class="hero__zigi"
+           loading="eager" fetchpriority="high" decoding="sync" />
+
+      <!-- Jahreszeiten -->
+      <div class="season-layer">
+        <div class="season season--winter is-active">
+          <div class="season__filter season__filter--winter"></div>
+          <div class="season__effects">
+            <span class="particle flake"></span><span class="particle flake"></span><span class="particle flake"></span>
+            <span class="particle flake"></span><span class="particle flake"></span><span class="particle flake"></span>
+            <span class="particle flake"></span><span class="particle flake"></span><span class="particle flake"></span>
+            <span class="particle flake"></span><span class="particle flake"></span><span class="particle flake"></span>
+          </div>
+        </div>
+
+        <div class="season season--spring">
+          <div class="season__filter season__filter--spring"></div>
+          <div class="season__effects">
+            <span class="particle petal"></span><span class="particle petal"></span><span class="particle petal"></span>
+            <span class="particle petal"></span><span class="particle petal"></span><span class="particle petal"></span>
+            <span class="particle petal"></span><span class="particle petal"></span><span class="particle petal"></span>
+            <span class="particle petal"></span>
+          </div>
+        </div>
+
+        <div class="season season--summer">
+          <div class="season__filter season__filter--summer"></div>
+          <div class="season__effects season__effects--summer">
+            <span class="light-ray light-ray--1"></span>
+            <span class="light-ray light-ray--2"></span>
+            <span class="light-ray light-ray--3"></span>
+            <span class="light-ray light-ray--4"></span>
+          </div>
+        </div>
+
+        <div class="season season--autumn">
+          <div class="season__filter season__filter--autumn"></div>
+          <div class="season__effects">
+            <span class="particle leaf"></span><span class="particle leaf"></span><span class="particle leaf"></span>
+            <span class="particle leaf"></span><span class="particle leaf"></span><span class="particle leaf"></span>
+            <span class="particle leaf"></span><span class="particle leaf"></span><span class="particle leaf"></span>
+            <span class="particle leaf"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Titel + Pfeil -->
+      <div class="hero__title-wrap">
+        <div class="hero__title-inner">
+          <h1 class="hero__title">Que trouvons-nous là-bas?</h1>
+          <img src="sketch/pfeil1.svg" alt="" class="hero__arrow" loading="eager" decoding="sync">
+        </div>
+      </div>
+
+      <!-- Intro Texte -->
+      <div class="hero__intro-text hero__intro-text--1">
+        <p class="text-bubble">
+          Autour de lui, le temps passe.<br>
+          Les fleurs s'épanouissent, les feuilles poussent, se fanent, tombent.
+        </p>
+      </div>
+
+      <div class="hero__intro-text hero__intro-text--2">
+        <p class="text-bubble">
+          Mais lui reste. Jour après jour.<br>
+          Silencieux. Immobile.
+        </p>
+      </div>
+
+      <div class="hero__intro-text hero__intro-text--3">
+        <p class="text-bubble">
+          Il sépare le haut du bas,<br>
+          l'extérieur de l'intérieur.
+        </p>
+      </div>
+
+      <!-- Leiter Texte -->
+      <div class="hero__intro-text hero__ladder-text hero__ladder-text--1">
+        <p class="text-bubble">
+          Là-bas s'accumulent les choses<br>
+          qui ne supportent pas la lumière.
+        </p>
+      </div>
+
+      <div class="hero__intro-text hero__ladder-text hero__ladder-text--2">
+        <p class="text-bubble">
+          Ombres issues de pensées,<br>
+          éclats issus de sentiments –<br>
+          ce qui n'est pas dit s'enfonce.
+        </p>
+      </div>
+
+      <div class="hero__intro-text hero__ladder-text hero__ladder-text--3">
+        <p class="text-bubble">
+          Là-bas, il n'y a ni printemps, ni automne.<br>
+          Seulement le froid, l'obscurité et des choses<br>
+          dont personne ne veut parler.
+        </p>
+      </div>
+
+      <!-- Müllhaufen Text -->
+      <div class="hero__intro-text hero__trash-text">
+        <p class="text-bubble">
+          C'est ici qu'ils dérivent –<br>
+          nos vices, notre honte,<br>
+          les restes de ce que nous avons refoulé.
+        </p>
+      </div>
+
+      <!-- Tunnel Ghost Text im Schwarz -->
+      <div class="hero__tunnel-ghost">
+        <p class="text-bubble">
+          Les pensées et les émotions enfouies au plus profond de nous-mêmes, trop lourdes pour continuer à être portées à la surface.
+        </p>
+      </div>
+
+      <div class="hero__blackout"></div>
+    </div>
+  </section>
+
+  <!-- =========================================================
+       Kapitel 2: Tunnel -> Kanal
+       ========================================================= -->
+  <section class="seq" id="section-02-seq">
+    <div class="seq__viewport">
+
+      <!-- Tunnel Layer -->
+      <div class="seq__tunnel">
+        <img src="sketch/tunneldunkel.svg" alt="Tunnel dunkel" class="seq__img seq__img--dark" loading="eager" decoding="sync">
+        <img src="sketch/tunneldunkelmuell.svg" alt="Tunnel dunkel Müll" class="seq__img seq__img--dark-muell" loading="eager" decoding="sync">
+
+        <img src="sketch/tunnelhell.svg" alt="Tunnel hell" class="seq__img seq__img--light" loading="eager" decoding="sync">
+
+        <div class="seq__graffiti">
+          <img src="sketch/graffiti.gif" alt="Graffiti" class="seq__graffiti-gif" loading="eager" decoding="sync">
+        </div>
+
+        <img src="sketch/tunnelhellmuell.svg" alt="Tunnel hell Müll" class="seq__img seq__img--light-muell" loading="eager" decoding="sync">
+
+        <!-- bleibt im HTML, wird per JS nicht eingeblendet -->
+        <div class="seq__text seq__text--tunnel">
+          <p class="text-bubble">
+            Les pensées et les émotions enfouies au plus profond de nous-mêmes, trop lourdes pour continuer à être portées à la surface.
+          </p>
+        </div>
+      </div>
+
+      <!-- Kanal Horizontal Track -->
+      <div class="seq__hscroll">
+        <div class="seq__track">
+          <section class="seq__slide canal--1">
+            <img src="sketch/hintergrundkanal.svg" alt="Hintergrund Kanal" class="seq__bg seq__bg--canal" loading="eager" decoding="sync">
+            <div class="seq__text seq__text--center seq__text--canal-1">
+              <p class="text-bubble">
+                Peut-être que ce qui se trouve ici-bas<br>
+                n'est pas des déchets, mais une partie de nous-mêmes.
+              </p>
+            </div>
+          </section>
+
+          <section class="seq__slide canal--2">
+            <img src="sketch/hintergrundkanal.svg" alt="Hintergrund Kanal" class="seq__bg seq__bg--canal" loading="eager" decoding="sync">
+            <div class="seq__text seq__text--center seq__text--canal-2">
+              <p class="text-bubble">
+                Peut-être que ce que nous cachons ici-bas<br>
+                est ce qui nous relie.
+              </p>
+            </div>
+          </section>
+
+          <section class="seq__slide canal--3">
+            <img src="sketch/hintergrundkanal.svg" alt="Hintergrund Kanal" class="seq__bg seq__bg--canal" loading="eager" decoding="sync">
+            <div class="seq__text seq__text--center seq__text--canal-3">
+              <p class="text-bubble">
+                Peut-être faut-il les deux :<br>
+                la lumière au-dessus et la profondeur en dessous.<br>
+                Car c'est seulement entre les deux<br>
+                que l'on voit qui nous sommes vraiment.
+              </p>
+            </div>
+          </section>
+        </div>
+      </div>
+
+      <div class="seq__blackout"></div>
+    </div>
+  </section>
+
+  <!-- Footer: nur Text, zentriert -->
+  <footer class="footer">
+    <p>
+      von <span class="footer__name">Maria Reichmuth</span> &amp; <span class="footer__name">Ricarda Schirato</span><br>
+      Copyright 2025
+    </p>
+  </footer>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
