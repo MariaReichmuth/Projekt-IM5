@@ -8,8 +8,8 @@
 
 **Maria Reichmuth, Ricarda Schirato (MMP23CV)**
 
-**Artefakt:** projektim05.mariareichmuth  
-**Praesentationsvideo:** [Link einfügen]
+**Link Artefakt:** projektim05.mariareichmuth.ch  
+**Link Präsentationsvideo (für Visua05):** [Link einfügen]
 
 ---
 
@@ -32,9 +32,9 @@ Ein bewusster Richtungswechsel von vertikalem zu horizontalem Scrollen markiert 
 ---
 
 ## Formatentscheidung: Vom Animationsfilm zum Scrollytelling
-Ursprünglich war das Projekt als klassischer Animationsfilm geplant. Während der konzeptionellen Arbeit zeigte sich jedoch, dass sich das Thema der inneren Tiefe, des langsamen Übergangs und der Verdrängung nur begrenzt in einer rein linearen Form abbilden lässt.
+Ursprünglich war das Projekt als klassischer Animationsfilm für das Fach Visualisieren 5 geplant. Während der konzeptionellen Arbeit zeigte sich jedoch, dass sich das Thema der inneren Tiefe, des langsamen Übergangs und der Verdrängung nur begrenzt in einer rein linearen Form abbilden lässt.
 
-Im Fach *Visualisieren* entschieden wir uns deshalb bewusst für einen Wechsel zum Scrollytelling. Der Abstieg in die Tiefe, das Verweilen in Räumen und der spätere horizontale Weg durch den Kanal liessen sich durch Scroll-Interaktion nicht nur darstellen, sondern körperlich nachvollziehen. Nutzer:innen bestimmen Tempo und Rhythmus selbst, wodurch der innere Prozess nicht konsumiert, sondern durchlaufen wird.
+Im Fach *Visualisieren* entschieden wir uns deshalb bewusst für einen Wechsel zum Scrollytelling, weshalb wir das Projekt dann Modulübergreifend in Visualisieren- und Interaktive Medien 5 umgesetzt haben. Der Abstieg in die Tiefe, das Verweilen in Räumen und der spätere horizontale Weg durch den Kanal lassen sich durch Scroll-Interaktion nicht nur besser darstellen, sondern auch besser erlebbar machen. Nutzer:innen bestimmen Tempo und Rhythmus selbst, wodurch der innere Prozess nicht nur von aussen betrachtet, sondern durchlaufen wird.
 
 ---
 
@@ -57,16 +57,22 @@ Alle visuellen Assets sind im Ordner `sketch/` gebündelt und werden über relat
 ## Hilfsmittel und Arbeitsweise
 
 ### Gestalterische Werkzeuge
-Die visuellen Assets wurden überwiegend selbst erstellt und bewusst auf das Scrollytelling hin gedacht.
+Die visuellen Assets wurden zu 100% selbst erstellt und bewusst auf das Scrollytelling hin gedacht.
 
 - **Procreate**  
-  Erstellung der Illustrationen (SVG-Exports) sowie einzelner Bildlayer. Bereits beim Zeichnen wurde darauf geachtet, dass Elemente sauber getrennt, skalierbar und übereinanderlegbar sind.
+  Erstellung der Illustrationen sowie einzelner Bildlayer. Bereits beim Zeichnen wurde, so gut es ging, darauf geachtet, dass Elemente sauber getrennt, skalierbar und übereinanderlegbar sind. Auch die GIFs haben wir in Procreate gemacht. Animationen wurden bewusst kurz gehalten und so geloopt, dass sie sich ruhig und repetitiv verhalten.
+
+    - **Adobe Lighroom**  
+  Bildbearbeitung unserer Fotos
 
 - **Adobe Photoshop**  
-  Erstellung und Feinschliff der animierten GIFs (Schritte, Zigarette, Graffiti, Ratten). Animationen wurden bewusst kurz gehalten und so geloopt, dass sie sich ruhig und repetitiv verhalten.
+  Erstellung und Feinschliff der Collagen mit unseren Fotos und unseren Zeichnungen.
+  
+- **Adobe Illustrator**  
+Umwandeln der Collagen in skalierbare und Website-taugliche SVG Dateien.
 
 - **Handskizzen**  
-  Erste Kompositions- und Dramaturgieskizzen entstanden bewusst analog. Diese dienten weniger als exakte Baupläne, sondern als Denkwerkzeug für Rhythmus, Blickführung und Übergänge.
+  Gewisse Thumbnails und Dramaturgieskizzen entstanden bewusst analog. Diese dienten weniger als exakte Baupläne, sondern als Denkwerkzeug für Rhythmus, Blickführung und Übergänge.
 
 Ein klassisches Wireframe-Tool (z. B. Figma) wurde nicht eingesetzt. Stattdessen wurde früh direkt im Browser gearbeitet, da sich viele Entscheidungen (Timing, Raumgefühl, Scroll-Länge) erst dort sinnvoll beurteilen liessen.
 
@@ -88,8 +94,6 @@ Ein klassisches Wireframe-Tool (z. B. Figma) wurde nicht eingesetzt. Stattdessen
   - Debugging von Timing- und Scrollproblemen
   - Optimierung von Performance und Responsiveness
   - Entwicklung robuster Lösungen (z. B. GIF-Restarts, Motion-Override)
-
-ChatGPT wurde dabei nicht als „Code-Generator“, sondern als Sparringspartner eingesetzt: Die inhaltlichen Entscheidungen, Dramaturgie und visuelle Logik stammen aus dem Projektteam.
 
 ---
 
