@@ -18,7 +18,7 @@ Das interaktive Scrollytelling *Que trouvons-nous là-bas?* untersucht innere Ko
 
 Durch Scroll-Interaktion wird der Blick von einer lebendigen Stadtoberfläche in einen dunklen Raum gelenkt, der verdrängte Gedanken und Emotionen symbolisiert. Fotografie, Illustration, Animation, Typografie und Scrollbewegung werden zu einer linearen, immersiven Erzählform verbunden.
 
-Ziel der Arbeit ist es, innere Hürden und Traumata nicht erklärend darzustellen, sondern durch Bewegung, Raum und Zeit erfahrbar zu machen. Viele Entscheidungen entstanden dabei nicht am Reissbrett, sondern erst im Prozess – oft genau dann, wenn etwas nicht so funktionierte wie gedacht.
+Ziel der Arbeit ist es, innere Hürden und Traumata nicht erklärend darzustellen, sondern durch Bewegung, Raum und Zeit erfahrbar zu machen und so eine emotionale, intuitive Auseinandersetzung mit dem Thema Verdrängung zu ermöglichen.
 
 ---
 
@@ -27,14 +27,14 @@ Im Zentrum des Projekts steht die Frage, was sich unter der Oberfläche verbirgt
 
 Der Gullideckel fungiert als visuelle und erzählerische Schwelle. Er trennt das Oben vom Unten, das Äussere vom Inneren. Das Scrollen übernimmt dabei nicht nur die Navigation, sondern das Erzählen selbst. Je weiter gescrollt wird, desto tiefer taucht man in die Geschichte ein.
 
-Ein bewusster Richtungswechsel von vertikalem zu horizontalem Scrollen markiert einen neuen inneren Zustand. Diese Entscheidung war keine rein formale Spielerei, sondern ergab sich aus der Erkenntnis, dass sich innere Prozesse nicht nur als Abstieg, sondern auch als Weg durch einen Raum beschreiben lassen.
+Ein bewusster Richtungswechsel von vertikalem zu horizontalem Scrollen markiert einen neuen inneren Zustand und erweitert den Abstieg zu einem Weg durch das Innere.
 
 ---
 
 ## Formatentscheidung: Vom Animationsfilm zum Scrollytelling
-Ursprünglich war das Projekt als klassischer Animationsfilm konzipiert. Während der Arbeit im Fach *Visualisieren* merkten wir jedoch relativ schnell, dass sich unser Thema zwar gut erzählen, aber nur schwer **erleben** lässt, wenn alles zeitlich vorgegeben ist.
+Ursprünglich war das Projekt als klassischer Animationsfilm geplant. Während der konzeptionellen Arbeit zeigte sich jedoch, dass sich das Thema der inneren Tiefe, des langsamen Übergangs und der Verdrängung nur begrenzt in einer rein linearen Form abbilden lässt.
 
-Der Wechsel zum Scrollytelling erfolgte deshalb bewusst – und zugegebenermassen auch etwas spontan. Erst durch die Scroll-Interaktion wurde klar, wie gut sich der Abstieg, das Verweilen und der spätere horizontale Weg mit dem Thema der inneren Tiefe verbinden lassen. Nutzer:innen bestimmen Tempo und Rhythmus selbst. Die Geschichte wird nicht abgespielt, sondern durchlaufen.
+Im Fach *Visualisieren* entschieden wir uns deshalb bewusst für einen Wechsel zum Scrollytelling. Der Abstieg in die Tiefe, das Verweilen in Räumen und der spätere horizontale Weg durch den Kanal liessen sich durch Scroll-Interaktion nicht nur darstellen, sondern körperlich nachvollziehen. Nutzer:innen bestimmen Tempo und Rhythmus selbst, wodurch der innere Prozess nicht konsumiert, sondern durchlaufen wird.
 
 ---
 
@@ -50,46 +50,46 @@ Projekt-IM5/
 &nbsp;&nbsp;&nbsp;├─ PNG-Assets  
 &nbsp;&nbsp;&nbsp;└─ GIF-Animationen  
 
-Alle visuellen Assets sind im Ordner `sketch/` gebündelt und werden über relative Pfade eingebunden. Diese klare Trennung erwies sich später als enorm hilfreich, insbesondere beim Preloading und Debugging.
+Alle visuellen Assets sind im Ordner `sketch/` gebündelt und werden über relative Pfade eingebunden.
 
 ---
 
 ## Hilfsmittel und Arbeitsweise
 
 ### Gestalterische Werkzeuge
-Die visuellen Assets wurden überwiegend selbst erstellt und von Anfang an auf das Scrollytelling hin gedacht – zumindest so weit, wie wir es zu diesem Zeitpunkt bereits verstanden haben.
+Die visuellen Assets wurden überwiegend selbst erstellt und bewusst auf das Scrollytelling hin gedacht.
 
 - **Procreate**  
-  Erstellung der Illustrationen (SVG-Exports) sowie einzelner Bildlayer. Schon beim Zeichnen wurde versucht, Ebenen sauber zu trennen und so anzulegen, dass sie sich später skalieren und übereinanderlegen lassen. Dass sich manche Entscheidungen erst im Browser als suboptimal herausstellten, gehörte allerdings ebenfalls dazu.
+  Erstellung der Illustrationen (SVG-Exports) sowie einzelner Bildlayer. Bereits beim Zeichnen wurde darauf geachtet, dass Elemente sauber getrennt, skalierbar und übereinanderlegbar sind.
 
 - **Adobe Photoshop**  
-  Erstellung und Feinschliff der animierten GIFs (Schritte, Zigarette, Graffiti, Ratten). Die Animationen wurden bewusst kurz gehalten und ruhig geloopt, was sich später als grosser Vorteil für das Scrollytelling erwies.
+  Erstellung und Feinschliff der animierten GIFs (Schritte, Zigarette, Graffiti, Ratten). Animationen wurden bewusst kurz gehalten und so geloopt, dass sie sich ruhig und repetitiv verhalten.
 
 - **Handskizzen**  
-  Erste Skizzen entstanden analog. Sie dienten weniger als exakte Baupläne, sondern als Denkstütze für Dramaturgie, Blickführung und Übergänge. Viele dieser Skizzen wurden später mehrfach überarbeitet – meistens, weil wir im Code merkten, dass etwas so nicht funktionieren konnte.
+  Erste Kompositions- und Dramaturgieskizzen entstanden bewusst analog. Diese dienten weniger als exakte Baupläne, sondern als Denkwerkzeug für Rhythmus, Blickführung und Übergänge.
 
-Ein klassisches Wireframe-Tool wurde bewusst nicht eingesetzt. Stattdessen arbeiteten wir früh direkt im Browser, da Timing, Raumgefühl und Scroll-Längen erst dort wirklich greifbar wurden.
+Ein klassisches Wireframe-Tool (z. B. Figma) wurde nicht eingesetzt. Stattdessen wurde früh direkt im Browser gearbeitet, da sich viele Entscheidungen (Timing, Raumgefühl, Scroll-Länge) erst dort sinnvoll beurteilen liessen.
 
 ---
 
 ### Programmier-Hilfsmittel
 - **HTML / CSS / JavaScript**  
-  Die Website ist statisch umgesetzt, ohne Frameworks. Diese Entscheidung gab uns volle Kontrolle über DOM-Struktur, Layering und Performance – verlangte aber auch, dass wir uns intensiv mit Details auseinandersetzten, die man sonst gerne auslagert.
+  Die Website ist bewusst statisch umgesetzt, ohne Frameworks. Dies ermöglichte volle Kontrolle über DOM-Struktur, Layering und Performance.
 
 - **GSAP (GreenSock Animation Platform)**  
-  Zentrales Werkzeug für sämtliche Animationen.
+  Zentrales Werkzeug für sämtliche Animationen.
 
 - **GSAP ScrollTrigger**  
-  Steuerung aller Animationen über die Scrollposition, inklusive Pinning, Scrubbing und Richtungsabfrage.
+  Steuerung aller Animationen über die Scrollposition, inkl. Pinning, Scrubbing und Richtungsabfrage.
 
 - **ChatGPT (v5.1 / v5.2)**  
-  Eingesetzt als technischer Sparringspartner, unter anderem bei:
-  - Strukturierung komplexer Timelines  
-  - Debugging von Timing- und Scrollproblemen  
-  - Performance-Optimierung  
-  - Entwicklung robuster Lösungen (z. B. GIF-Restarts, Motion-Override)
+  Unterstützend bei:
+  - Strukturierung komplexer Timelines
+  - Debugging von Timing- und Scrollproblemen
+  - Optimierung von Performance und Responsiveness
+  - Entwicklung robuster Lösungen (z. B. GIF-Restarts, Motion-Override)
 
-ChatGPT diente dabei nicht als Ersatz für konzeptionelle Entscheidungen, sondern eher als jemand, der geduldig mitdenkt, wenn man zum dritten Mal am selben Scroll-Bug hängt.
+ChatGPT wurde dabei nicht als „Code-Generator“, sondern als Sparringspartner eingesetzt: Die inhaltlichen Entscheidungen, Dramaturgie und visuelle Logik stammen aus dem Projektteam.
 
 ---
 
@@ -101,181 +101,229 @@ Das Projekt ist in zwei klar getrennte Hauptabschnitte gegliedert:
 1. **Hero / Kapitel 1 (vertikal, pinned)**  
 2. **Sequenz / Kapitel 2 (Tunnel → Kanal, horizontal interpretiert)**
 
-Diese Trennung entstand nicht nur aus dramaturgischen Gründen, sondern auch aus praktischen: kleinere Timelines, besser kontrollierbares Refresh-Verhalten und weniger unvorhersehbares Scroll-Verhalten beim Zurückscrollen.
+Beide Abschnitte besitzen eigene ScrollTrigger-Logiken, sind jedoch dramaturgisch und visuell miteinander verbunden.
+
+Die Trennung ermöglicht:
+- überschaubare Timelines
+- gezieltes Refresh-Verhalten
+- bessere Kontrolle über Performance und Reverse-Scroll
 
 ---
 
 ## Kapitel 1 – Vertikales Scrollytelling (Hero)
 
+<p align="center">
+  <img src="sketch/stummelreinwerfen.png" alt="Storyboard: Zigarettenstummel wird eingeworfen" width="70%">
+</p>
+
 ### Pinning als erzählerische Grundlage
-Der erste Abschnitt ist als **pinned Section** umgesetzt. Der sichtbare Bildausschnitt bleibt fixiert, während das Scrollen den Fortschritt innerhalb der Szene steuert.
+Der erste Abschnitt ist als **pinned Section** umgesetzt.  
+Das bedeutet: Der sichtbare Bildausschnitt bleibt fixiert, während die Scrollbewegung ausschliesslich den Fortschritt innerhalb der Szene steuert.
 
 Technisch:
-- Fixierung des Abschnitts beim Eintritt  
-- künstlich verlängerte Scroll-Länge  
-- GSAP-Timeline mit `scrub`
+- Der Abschnitt wird beim Eintritt gepinnt.
+- Die Scroll-Länge wird künstlich verlängert.
+- Eine GSAP-Timeline wird mit `scrub` an die Scrollposition gekoppelt.
 
 Inhaltlich:
-- kein klassischer Szenenwechsel  
-- stattdessen ein kontinuierliches Hineinzoomen und Abtauchen
-
-<p align="center">
-  <img src="anhang/stummelreinwerfen.png" alt="Storyboard: Zigarettenstummel wird eingeworfen" width="70%">
-</p>
+- Der Blick wird nicht durch Seitenwechsel oder Schnitte geführt.
+- Stattdessen entsteht der Eindruck eines kontinuierlichen Hineinzoomens und Abtauchens.
 
 ---
 
 ### Layer-Struktur im Hero
-Der Hero besteht aus vielen exakt übereinanderliegenden Ebenen:
+Der Hero besteht aus einer Vielzahl exakt übereinanderliegender Ebenen:
 
-- Hintergrund (Strassenoberfläche)
+- Hintergrund (Strassenoberfläche)
 - Detail-Layer (Gullideckel)
 - Kanalisation
-- Leiter
-- Müllhaufen
+- Leiter (extra hochgezogen, um vertikale Bewegung zu ermöglichen)
+- Müllhaufen
 - saisonale Filter und Partikeleffekte
-- GIF-Overlays
-- Textlayer
-- Blackout-Layer
+- GIF-Overlays (Schritte, Zigarette, Akzente)
+- Textlayer (Introtexte, Leitertexte, Mülltext)
+- Blackout-Layer für bewusste Schnittmomente
 
-Alle Elemente bleiben permanent im DOM und werden ausschliesslich über Transparenz, Skalierung und Position gesteuert. Diese Entscheidung verhinderte viele Layout-Sprünge – auch wenn sie uns anfangs einige graue Haare beschert hat.
+Alle Ebenen liegen permanent im DOM und werden ausschliesslich über:
+- Transparenz
+- Skalierung
+- Position
+
+gesteuert.  
+Es werden **keine Elemente dynamisch ein- oder ausgehängt**, um Layout-Sprünge zu vermeiden.
 
 ---
 
 ### Zeit, Stillstand und Kontrast (Jahreszeiten)
-Die Jahreszeiten laufen bewusst unabhängig vom Scrollen.
+Die Jahreszeiten laufen bewusst **unabhängig vom Scrollen**.
 
 Technisch:
-- zyklischer Wechsel per Timer  
-- Überblendung über Opacity und Filter
+- zyklischer Wechsel per Timer
+- Überblendung über Opacity und Filter
 
 Inhaltlich:
-- oben vergeht Zeit automatisch  
-- der Gullideckel bleibt unverändert
+- Zeit vergeht oben automatisch
+- der Gullideckel bleibt unverändert
 
-Dieser Kontrast entstand eher aus einer inhaltlichen Überlegung – und stellte sich erst später als technisch elegant heraus.
+Dieser Kontrast zwischen Bewegung und Stillstand verstärkt die Metapher der Oberfläche als hektischen Alltagsraum.
 
 ---
 
 ### Abstieg und Text-Timing
-Texte erscheinen als punktuelle Gedankenfragmente.
-
-- Jede Textpassage ist eine eigene Ebene  
-- exakt an Scrollposition gekoppelt  
-- verschwindet wieder zugunsten der Bildwirkung  
-
-Beim Abstieg bewegt sich nicht die Kamera, sondern der Raum. Der Zigarettenstummel bleibt als Leitmotiv erhalten.
 
 <p align="center">
-  <img src="anhang/kanalreinscrollen.png" alt="Storyboard: Abstieg in die Kanalisation" width="70%">
+  <img src="sketch/kanalreinscrollen.png" alt="Storyboard: Abstieg in die Kanalisation" width="70%">
 </p>
+
+Die Texte erscheinen nicht als durchgehender Textfluss, sondern als **punktuelle Gedankenfragmente**.
+
+Technisch:
+- jeder Text ist eine eigene Ebene
+- Ein- und Ausblendung ist exakt auf Scrollposition abgestimmt
+- Texte verschwinden bewusst wieder, um Platz für Bildwirkung zu lassen
+
+Beim Abstieg entlang der Leiter bewegt sich nicht die Kamera, sondern der Raum selbst.  
+Der Zigarettenstummel bleibt als visuelles Leitmotiv erhalten, während sich die Umgebung verändert.
 
 ---
 
 ## Kapitel 2 – Tunnel und horizontaler Kanal
 
 ### Umdeutung der Scrollbewegung
-Nach dem Abstieg wird die Scrollbewegung neu interpretiert. Obwohl weiterhin vertikal gescrollt wird, bewegt sich der Raum horizontal.
+Nach dem Abstieg wird die Scrollbewegung neu interpretiert.
+
+Obwohl Nutzer:innen weiterhin vertikal scrollen:
+- bewegt sich der Raum horizontal
+- entsteht das Gefühl eines Vorwärtsgehens
 
 Technisch:
-- horizontaler Track mit Slides  
-- seitliche Verschiebung (`xPercent`)  
-- vertikale Scrollbewegung steuert horizontale Bewegung  
+- Ein breiter Track enthält mehrere Slides nebeneinander.
+- Der Track wird seitlich verschoben (`xPercent`).
+- Die vertikale Scrollbewegung steuert diese horizontale Verschiebung.
 
-Dieser Moment war einer der Punkte, an dem wir erst beim Testen merkten, wie stark sich Raumwahrnehmung allein durch Bewegungslogik verändern lässt.
+Diese Technik erlaubt eine ungewohnte Raumerfahrung, ohne neue Interaktionsformen zu verlangen.
 
 ---
 
 ### Tunnelphase
-Der Tunnel fungiert als Übergangsraum:
-
-- dunkel → kurz hell → wieder dunkel  
-- Graffiti als temporäre Ebene  
-- reduzierte Textpräsenz  
 
 <p align="center">
-  <img src="anhang/rattelauft.png" alt="Storyboard: Ratte läuft durch den Kanal" width="70%">
+  <img src="sketch/rattelauft.png" alt="Storyboard: Ratte läuft durch den Kanal" width="70%">
 </p>
+
+Die Tunnelphase dient als Übergang:
+
+- dunkel → kurz hell → wieder dunkel
+- Graffiti erscheint als zeitlich begrenzte Ebene
+- Texte bleiben bewusst zurückhaltend
+
+Technisch erfolgt der Wechsel über eine eigene Timeline, bevor der horizontale Track überhaupt sichtbar wird.
 
 ---
 
 ### Horizontaler Kanal und Textbeats
 Der Kanal besteht aus mehreren Slides mit leicht versetzten Ausschnitten derselben Umgebung.
 
-- kurze Textbeats  
-- bewusste Pausen  
-- zusammenhängender Raum  
+- Jeder Slide besitzt einen eigenen Textbeat.
+- Texte werden bewusst kurz gehalten.
+- Zwischen den Slides entstehen ruhige Pausen.
+
+Der Raum bleibt zusammenhängend, obwohl sich der Bildausschnitt verändert.
 
 ---
 
 ## Globale Ratte – komplexes Overlay
 
-### Warum ein globales Overlay?
-Die Ratte ist keine Hintergrundfigur, sondern eine eigenständige Beobachterin.
+<p align="center">
+  <img src="sketch/rattestatisch.png" alt="Storyboard: ruhende Ratte" width="55%">
+</p>
 
-- fixed über der gesamten Szene  
-- unabhängig vom Scrollfluss  
+### Warum ein globales Overlay?
+Die Ratte ist kein Teil des Hintergrunds, sondern eine eigenständige Figur.
+
+Deshalb liegt sie:
+- **fixed über der gesamten Szene**
+- ausserhalb des normalen Scrollflusses
+
+So entsteht der Eindruck, dass:
+- sich die Umgebung bewegt
+- die Ratte jedoch aktiv „mitgeht“
 
 ---
 
 ### Drei Zustände, eine Figur
-1. **Ratte 1** – Ankommen  
-2. **Ratte 2** – Bewegung, reagiert auf Scrollrichtung  
-3. **Ratte 3** – Ruhe, Blick zum Licht  
+Die Ratte existiert in drei klar getrennten Zuständen:
 
-<p align="center">
-  <img src="anhang/rattestatisch.png" alt="Storyboard: ruhende Ratte" width="55%">
-</p>
+1. **Ratte 1** – Ankommen  
+2. **Ratte 2** – Bewegung  
+3. **Ratte 3** – Ruhe  
 
 ---
 
 ### GIF-Restart als technischer Kniff
-Damit Ratte 2 nicht „aus dem Takt“ läuft:
+Damit Ratte 2 nicht „aus dem Takt“ läuft, wird das GIF regelmässig neu gestartet.
 
-- DOM-Ersatz des `<img>`  
-- Cache-Busting  
-- Restart nur im sichtbaren Zustand  
-
-Diese Lösung entstand erst nach mehreren eher unschönen Experimenten.
+Technisch:
+- DOM-Ersatz des `<img>`-Elements
+- Cache-Busting über Query-Parameter
+- Restart nur, wenn der Zustand sichtbar ist
 
 ---
 
 ## Performance, Preload und Stabilität
-Durch viele Layer wäre spätes Laden sofort sichtbar gewesen.
 
-Massnahmen:
-- Preload im HTML-Head  
-- zusätzliches Decode vor Animationsstart  
+### Warum Preload entscheidend war
+Durch die hohe Anzahl an Layern würden spät ladende Bilder sofort auffallen.
+
+Um das zu verhindern:
+- Preload wichtiger Assets bereits im HTML-Head
+- zusätzliche Sammlung und Decode der zentralen Bilder vor Initialisierung der Animationen
 
 Ziel:
-- kein Pop-in  
-- stabile Bildkomposition  
+- kein Pop-in
+- keine sichtbaren Nachladeeffekte
+- stabile Bildkomposition
+
+---
+
+### Anti-Flicker-Massnahmen
+Um visuelles Flackern zu vermeiden, wurden:
+
+- GPU-freundliche Properties genutzt (`transform`, `opacity`)
+- klassische Anti-Flicker-Settings gesetzt
+- Layout-berechnende Animationen vermieden
+
+Diese Massnahmen sind nicht sichtbar, aber entscheidend für die Wirkung des Scrollytellings.
 
 ---
 
 ## Motion Preferences und bewusster Override
-Ein Scrollytelling lebt von Bewegung. In Umgebungen mit automatisch aktiviertem `prefers-reduced-motion` (z. B. Citrix) wird das Erlebnis jedoch stark eingeschränkt.
+Ein Scrollytelling ist grundsätzlich bewegungsbasiert.  
+In Umgebungen, in denen `prefers-reduced-motion` automatisch aktiv ist (z. B. Citrix), kann dies das Erlebnis stark einschränken oder unbrauchbar machen.
 
-Deshalb:
-- Animationen starten dort nicht automatisch  
-- bewusster Override möglich
+Deshalb wurde bewusst folgende Logik umgesetzt:
 
-**URL-Override:**  
-`/?motion` erzwingt das volle Scrollytelling
+- Bei aktivem `prefers-reduced-motion` startet das Scrollytelling standardmässig **nicht automatisch**.
+- Für Präsentationen, Tests oder Beurteilungen kann das volle Scrollytelling dennoch bewusst aktiviert werden.
+
+**Override per URL:**  
+`/?motion` erzwingt die vollständige Animation trotz aktivem Reduced Motion.
 
 ---
 
-## Zentrale Learnings
-- Scroll-Dramaturgie braucht präziseres Timing als klassische Animation  
-- Reverse-Scroll muss aktiv mitgedacht werden  
-- Der Browser ist das ehrlichste Testwerkzeug  
-- Performance entscheidet über Immersion  
-- Erst das Scrollytelling machte Abstieg und Richtungswechsel erzählerisch sinnvoll  
+## Zentrale Learnings aus der technischen Umsetzung
+
+- Scroll-basierte Dramaturgie erfordert präziseres Timing als klassische Animation.
+- Rueckwärtsscroll ist kein Nebeneffekt, sondern muss aktiv mitgedacht werden.
+- Skizzen funktionieren nicht automatisch im Scroll-Raum – der Browser ist das ehrlichste Testwerkzeug.
+- Performance ist kein „Nice-to-have“, sondern Voraussetzung für Immersion.
+- Form und Inhalt müssen gemeinsam gedacht werden – erst das Scrollytelling machte den Abstieg und Richtungswechsel erzählerisch sinnvoll.
 
 ---
 
 ## Fazit
-Die technische Umsetzung ist kein Selbstzweck, sondern Teil der Erzählung.
+Die technische Umsetzung versteht sich nicht als Selbstzweck, sondern als tragendes erzählerisches Mittel.
 
-Der Weg nach unten ist kein Schnitt –  
-er ist eine Bewegung.
+Durch die bewusste Entscheidung für Scrollytelling, den Wechsel von vertikaler zu horizontaler Bewegung und die enge Kopplung von Scroll und Bild entsteht eine Erzaehlung, die nicht konsumiert, sondern durchlaufen wird.
+
+Der Weg nach unten ist kein Schnitt – er ist eine Bewegung.
