@@ -1,86 +1,155 @@
-# Que trouvons-nous là-bas?
-**Interaktive Medien – Scrollytelling (2025)**  
-Maria Reichmuth, Ricarda Schirato (MMP23CV)
+<!-- Titelbild -->
+<p align="center">
+  <img src="sketch/titelbild.png" alt="Que trouvons-nous là-bas – Titelbild" width="100%">
+</p>
 
-**Artefakt:** projektim05.mariareichmuth
+# Que trouvons-nous là-bas?
+### Interaktive Medien – Scrollytelling (2025)
+
+**Maria Reichmuth, Ricarda Schirato (MMP23CV)**
+
+**Artefakt:** projektim05.mariareichmuth  
 **Präsentationsvideo:** [Link einfügen]
 
 ---
 
 ## 1) Projektidee in einem Satz
-Ein responsives Scrollytelling, bei dem der Scroll nicht nur Navigation ist, sondern **das Erzählen übernimmt**: Zoom, Überblendungen, Perspektivwechsel und ein Richtungswechsel (vertikal → horizontal) werden direkt an die Scrollbewegung gekoppelt.
+Ein responsives Scrollytelling, bei dem der Scroll nicht nur Navigation ist, sondern das Erzählen selbst übernimmt: Zooms, Überblendungen, Perspektivwechsel und ein bewusster Richtungswechsel (vertikal → horizontal) sind direkt an die Scrollbewegung gekoppelt.
 
 ---
 
-## 2) Fokus im Fach Interaktive Medien
-In diesem Projekt ging es weniger um „Story erklären“, sondern um **Interaktionsdesign + technische Umsetzung**:
+## 2) Fokus im Fach *Interaktive Medien*
+Der Schwerpunkt dieses Projekts lag nicht auf klassischem Storytelling, sondern auf **Interaktionsdesign und technischer Umsetzung**.
 
-- Scroll als dramaturgisches Werkzeug (scrubbed Animation statt Autoplay)
-- Ruhige Übergänge ohne harte Schnitte (Crossfades, Schwarzblenden)
-- Richtungswechsel als Interaktionsmoment (vertikal → horizontal)
-- Stabilität/Performance: Preload, Decode, Anti-Flicker-Massnahmen
-- Responsiveness + `prefers-reduced-motion`
+Im Zentrum standen:
+- Scroll als **dramaturgisches Werkzeug** (scrubbed Animation statt Autoplay)
+- Ruhige, kontrollierte Übergänge ohne harte Schnitte
+- Ein bewusster **Richtungswechsel** als Interaktionsmoment
+- Stabilität und Performance bei komplexem Layering
+- Responsives Verhalten und Umgang mit `prefers-reduced-motion`
 
 ---
 
-## 3) Interaktionsablauf (Was passiert beim Scrollen?)
+## 3) Interaktionsablauf – Was passiert beim Scrollen?
+
 ### Kapitel 1: Vertikal (Hero – pinned)
-Der Einstieg ist ein „pinned section“: Der sichtbare Bildausschnitt bleibt fix, während der Scroll eine Timeline scrubbt.
+Der Einstieg ist als *pinned section* umgesetzt. Der sichtbare Bildausschnitt bleibt fixiert, während der Scroll eine GSAP-Timeline scrubbt.
 
-Dabei passieren u.a.:
-- Zoom in den Gullideckel (Skalierung von Layern)
-- Layer-Wechsel (Strasse → Detail → Kanal)
-- Ein-/Ausblenden von Texten als Erzählbeats
-- Schwarzblenden als Übergänge
-- Abstieg entlang einer Leiter (Umgebung bewegt sich, Leitmotiv bleibt präsent)
+Dabei passieren unter anderem:
+- langsamer **Zoom in den Gullideckel** durch Skalierung mehrerer Layer  
+- **Layer-Wechsel** (Strasse → Detail → Kanalisation) über Crossfades  
+- Ein- und Ausblenden von Texten als narrative Beats  
+- **Schwarzblenden** als bewusste Übergänge zwischen Ebenen  
+- Ein vertikaler Abstieg entlang einer Leiter, während ein Leitmotiv im Bild präsent bleibt  
+
+<p align="center">
+  <img src="sketch/schritte.gif" width="60%">
+</p>
+
+---
 
 ### Kapitel 2: Horizontal (Kanal – pinned Track)
-Nach dem Abstieg wird der Scroll **horizontal interpretiert**, obwohl Nutzer:innen weiterhin vertikal scrollen.
+Nach dem Abstieg ändert sich die Bewegungslogik. Der Scroll wird horizontal interpretiert, obwohl weiterhin vertikal gescrollt wird.
+
 - Ein horizontaler Track mit mehreren Slides wird seitlich verschoben (`xPercent`)
-- Dadurch entsteht das Gefühl, „durch den Kanal zu gehen“
+- Die Nutzer:innen „gehen“ scrollend durch den Kanal
+- Der Richtungswechsel markiert bewusst einen neuen erzählerischen Abschnitt
+
+<p align="center">
+  <img src="sketch/graffiti.gif" width="70%">
+</p>
 
 ---
 
 ## 4) Technische Umsetzung
+
 ### Stack
-- HTML / CSS / JavaScript (statisch)
-- GSAP (Animation)
-- GSAP ScrollTrigger (Scroll-Steuerung, Pinning, MatchMedia)
+- **HTML / CSS / JavaScript** (statisch)
+- **GSAP** (Animation)
+- **GSAP ScrollTrigger** (Scroll-Steuerung, Pinning, MatchMedia)
 
-### Zentrale Prinzipien
-**a) Scroll = Timeline**
-- GSAP Timelines laufen mit `scrub: true` → Scrollposition steuert Animationsfortschritt
-
-**b) Layering statt Szenenwechsel**
-- Mehrere übereinanderliegende Bilder (SVGs, Overlays, GIFs)
-- Sichtbarkeit über `opacity/autoAlpha`, keine harten Cuts
-
-**c) Performance / Stabilität**
-- Preload + Decode von zentralen Assets vor Start (verhindert Pop-in/Flackern)
-- Anti-Flicker CSS (`translateZ(0)`, `backface-visibility`, `will-change`)
-- Fokus auf GPU-freundliche Properties (`transform`, `opacity`)
-
-**d) Responsiveness**
-- Unterschiedliche Transform-Origins/Positionierungen für Mobile/Desktop über `ScrollTrigger.matchMedia`
-
-**e) Reduced Motion**
-- `prefers-reduced-motion: reduce` wird respektiert
-- Override möglich über `?motion`
-- Im Reduced-Motion-Modus werden finale Zustände gesetzt, statt alles zu scrubben
+Illustrationen und GIFs wurden mit **Procreate** und **Adobe Photoshop** erstellt.  
+Die Programmierung wurde mit Unterstützung von **ChatGPT** umgesetzt.
 
 ---
 
-## 5) Animierte Elemente (warum GIFs, wie eingesetzt)
-GIFs werden gezielt als „Mini-Events“ eingesetzt, um Handlung/Atmosphäre zu verstärken, ohne die Szene permanent zu überladen:
+### Zentrale technische Prinzipien
 
-- **schritte.gif**: Alltagsfluss an der Oberfläche
-- **zigarette.gif / Zigi2.gif**: Trigger/Leitmotiv (kurz betont, dann zurückgenommen)
-- **graffiti.gif**: Begriffe als visuelle Spuren im Tunnel
-- **ratte.gif / ratte2.gif / ratte3.gif**: wiederkehrendes Motiv mit drei Zuständen
+#### a) Scroll = Timeline
+Alle Animationen laufen in GSAP-Timelines mit `scrub: true`.  
+Die Scrollposition steuert direkt den Fortschritt der Animation.
+
+#### b) Layering statt Szenenwechsel
+- Mehrere übereinanderliegende SVGs, Overlays und GIFs  
+- Sichtbarkeit wird über `opacity` / `autoAlpha` gesteuert  
+- Keine harten Schnitte, sondern fliessende Übergänge  
+
+<p align="center">
+  <img src="sketch/kanalisation1.svg" width="70%">
+</p>
+
+#### c) Performance & Stabilität
+- Preload + Decode zentraler Assets vor Start
+- Anti-Flicker-Massnahmen (`translateZ(0)`, `backface-visibility`, `will-change`)
+- Fokus auf GPU-freundliche Properties (`transform`, `opacity`)
+
+#### d) Responsiveness
+Unterschiedliche Positionierungen und Transform-Origins für Mobile und Desktop über `ScrollTrigger.matchMedia`.
+
+#### e) Reduced Motion
+- `prefers-reduced-motion: reduce` wird respektiert
+- Optionaler Override über `?motion`
+- Im Reduced-Motion-Modus werden finale Zustände gesetzt, statt die Timeline zu scrubben
+
+---
+
+## 5) Animierte Elemente – warum GIFs?
+GIFs werden gezielt als **Mini-Events** eingesetzt. Sie verstärken Handlung und Atmosphäre, ohne die Szenen dauerhaft zu überladen.
+
+- **schritte.gif** – Alltagsfluss an der Oberfläche  
+- **zigarette.gif / Zigi2.gif** – Auslöser und Leitmotiv  
+- **graffiti.gif** – visuelle Spuren unterdrückter Gedanken  
+- **ratte.gif / ratte2.gif / ratte3.gif** – wiederkehrendes Motiv mit drei Zuständen  
+
+<p align="center">
+  <img src="sketch/ratte.gif" width="40%">
+</p>
 
 **Technischer Kniff (Ratte 2):**  
-Ratte 2 liegt als **fixed Overlay** über der Szene und reagiert auf Scrollrichtung (Mirror/Position). Zusätzlich wird das GIF periodisch „seamless“ neu gestartet (Element ersetzen + Cache-Bust), damit der Loop stabil wirkt.
+Die zweite Ratte liegt als `fixed` Overlay über der Szene, reagiert auf die Scrollrichtung (Spiegelung/Position) und wird periodisch „seamless“ neu gestartet (Element ersetzen + Cache-Busting), um einen stabilen Loop zu gewährleisten.
 
 ---
 
 ## 6) Projektstruktur
+
+Projekt-IM5/
+├─ index.html
+├─ style.css
+├─ script.js
+├─ README.md
+└─ sketch/
+├─ *.svg
+├─ *.png
+└─ *.gif
+
+yaml
+Code kopieren
+
+Alle visuellen Assets sind im Ordner `sketch/` gebündelt und werden im Code über relative Pfade eingebunden.
+
+---
+
+## 7) Reflexion (Interaktive Medien)
+Das Projekt hat gezeigt, dass Scrollen mehr sein kann als Navigation.  
+Durch die direkte Kopplung von Scrollposition und Animation entsteht eine kontrollierte, ruhige Erzählform, bei der Nutzer:innen das Tempo selbst bestimmen.
+
+Besonders lehrreich waren:
+- das präzise Timing komplexer Timelines
+- der Umgang mit Performance bei vielen Ebenen
+- der bewusste Einsatz von Bewegung statt visueller Überreizung
+
+Die technische Umsetzung versteht sich nicht als Selbstzweck, sondern als Mittel, um Interaktion erfahrbar zu machen.
+
+---
+
+*Projekt im Rahmen des Moduls **Interaktive Medien**, 2025.*
