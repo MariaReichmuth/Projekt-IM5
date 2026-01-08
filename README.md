@@ -9,7 +9,7 @@
 **Maria Reichmuth, Ricarda Schirato (MMP23CV)**
 
 **Link Artefakt:** projektim05.mariareichmuth.ch  
-**Link Präsentationsvideo (für Visua05):** [Link einfügen]
+**Link Präsentationsvideo (für Visua05):** https://www.youtube.com/watch?v=uq4caDNiRPs
 
 ---
 
